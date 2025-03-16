@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8272092950854620232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1674803717420138242}
+  m_Layer: 6
+  m_Name: Bullet Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1674803717420138242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8272092950854620232}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.69, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6185157242600599516}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5934810551234971703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75,7 +106,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 67417458a77a4834f98e6fe3aa1948da,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1674803717420138242}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 67417458a77a4834f98e6fe3aa1948da,
         type: 3}
@@ -90,6 +125,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5804416039974657879}
   m_SourcePrefab: {fileID: 100100000, guid: 67417458a77a4834f98e6fe3aa1948da, type: 3}
+--- !u!4 &6185157242600599516 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 67417458a77a4834f98e6fe3aa1948da,
+    type: 3}
+  m_PrefabInstance: {fileID: 5934810551234971703}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6817824288877639014 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 67417458a77a4834f98e6fe3aa1948da,
@@ -152,3 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e98c15b33e7c447b9938ef26e68c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 8755343323795316029, guid: a7f8e7e1bf8375e46bc6a88086b0e691,
+    type: 3}
+  bulletSpawn: {fileID: 1674803717420138242}
+  cooldown: 2

@@ -13,7 +13,8 @@ public class TowerBuilder : MonoBehaviour
     void Update()
     {
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if(Physics.Raycast(ray, out RaycastHit hit, buildableGround)){
+        if(Physics.Raycast(ray, out RaycastHit hit))
+        {
             cursor.position = hit.point;
 
             if(Input.GetMouseButtonDown(0)){
