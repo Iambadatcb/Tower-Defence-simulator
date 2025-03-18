@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour
    public int damage = 200;
    public float lifeTime = 3;
 
+    
+
     private void Start()
     {
         Destroy(gameObject, lifeTime);
@@ -26,7 +28,7 @@ public class Bullet : MonoBehaviour
         {
             var health = other.gameObject.GetComponent<Health>();
             health?.TakeDamage(damage);
-
+            
             Destroy(gameObject);
         }
     }

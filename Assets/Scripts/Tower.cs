@@ -10,6 +10,7 @@ public class Tower : MonoBehaviour
 
     private List<GameObject> enemies = new();
     
+    
     void Start()
     {
         InvokeRepeating("Shoot",0,cooldown);
@@ -23,7 +24,7 @@ public class Tower : MonoBehaviour
         var bullet=Instantiate(bulletPrefab,bulletSpawn.position,bulletSpawn.rotation);
         bullet.GetComponent<Bullet>().target = enemies[0].transform;
     }
-
+   
     void OnTriggerEnter(Collider other)
     {
         if(other.transform.CompareTag("Enemy")){

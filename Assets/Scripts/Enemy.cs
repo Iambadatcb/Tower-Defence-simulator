@@ -1,40 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    public List<Vector3> path;
-    public float speed = 2.0f;
+    public int damage = 10;
+    public Transform target;
 
-    private int index = 0;
+    private NavMeshAgent agent;
 
-
-    // Update is called once per frame
+    void Start()
+    {
+        agent = GetComponent<NavMeshAgent>();
+    }
     void Update()
     {
-        if (Vector3.Distance(transform.position, path[index])< 0.3f)
+        agent.SetDestination(target.position);
+
+        var distance = Vector3.Distance(transform.position, target.position);
+
+        if (distance < 5)
         {
-            index++;
-
-            if (index >= path.Count)
-            {
-                index = 0;
-            }
-        }
-        
-        transform.LookAt(path[index]);
-        transform.position += transform.forward * speed * Time.deltaTime;
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-
-        for (int i = 0; i < path.Count-1; i++) 
-        {
-            Gizmos.DrawLine(path[i], path[i+1]);
+            agent.isStopped = true;
+            target.GetComponent<Health>().TakeDamage(damage);
+            Destroy(gameObject);
         }
     }
-
 }
